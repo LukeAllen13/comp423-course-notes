@@ -100,7 +100,7 @@ git commit -m "Added README.md file."
 }
 ```
 
-# Breakdown of `devcontainer.json`
+**Breakdown of `devcontainer.json`**
 
 - **`"name": "Rust Tutorial"`**  
     - Specifies the name of the development container environment.
@@ -145,7 +145,7 @@ rustc --version
 
 You should see something like:
 ```
-rustc 1.64.0 (a93df2f18 2024-03-23)
+rustc 1.84.0 (a93df2f18 2024-03-23)
 ```
 
 This confirms that a recent version of Rust is available in your dev container, meeting the requirement for an up-to-date version. 
@@ -217,5 +217,3 @@ Hello COMP423
 Congratulations! You've successfully set up a Rust development environment using a Dockerized dev container, installed the necessary extensions in VS Code, and learned how to create and manage a Rust project with ```cargo build``` and ```cargo run```. This approach ensures a consistent environment, avoiding the "it doesn't work on my machine" problem. It also keeps your local setup clean and organized, allowing you to just work on your Rust projects.
 
 **Extra Note:** What do containers help with? Well, they prevent the above mentioned "it doesn't work on my machine" problem by ensuring everyone is working with the same software inside of the cloned project. In other words, containers are fully reproducible development environments that run inside of Docker containers, ultimately providing everything needed to work on a project consistently across different machines. 
-
-# **Nice job getting through this tutorial!**
