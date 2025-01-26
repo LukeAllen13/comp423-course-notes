@@ -100,7 +100,7 @@ git commit -m "Added README.md file."
 }
 ```
 
-#### Breakdown of `devcontainer.json` if you are interested...
+# Breakdown of `devcontainer.json`
 
 - **`"name": "Rust Tutorial"`**  
     - Specifies the name of the development container environment.
@@ -115,10 +115,16 @@ git commit -m "Added README.md file."
     - Placeholder for custom VS Code settings (currently empty). 
 
   - **`"extensions"`**  
-    - List of recommended VS Code extensions for Rust development.
+    - List of recommended VS Code extensions for Rust development:  
+        - **`"rust-lang.rust-analyzer"`** – Official Rust language support with smart code analysis.  
+        - **`"matklad.rust-analyzer"`** – Alternative Rust analyzer for enhanced autocompletion and navigation.  
+        - **`"serayuzgur.crates"`** – Manages dependencies in `Cargo.toml` with suggestions and updates.  
+        - **`"vadimcn.vscode-lldb"`** – Provides debugging support using LLDB for Rust applications.  
 
-- **`"postCreateCommand": "cargo install --locked cargo-edit cargo-watch"`** 
-    - Runs after the container is created to install additional Rust tools.
+- **`"postCreateCommand": "cargo install --locked cargo-edit cargo-watch"`**  
+    - Runs after the container is created to install additional Rust tools:  
+        - **`cargo-edit`** – Adds commands to manage dependencies (`cargo add`, `cargo rm`, etc.).  
+        - **`cargo-watch`** – Automatically rebuilds the project when changes are detected.  
 
 #### Step 4: Reopen the Project in a VSCode Dev Container
 
@@ -146,16 +152,15 @@ This confirms that a recent version of Rust is available in your dev container, 
 
 #### Step 2: Create a New Rust Project
 
-Now, let's create a new Rust binary project:
+Now, let's create a new Rust binary project with the following command:
 
-- Run the following command to create the project:
 ```
 cargo new rust-project -vcs none
 ```
 
-The *-vcs none* flag prevents a cargo from initializing a Git repository automatically, as you'll manage the Git repository separately. 
+- The *-vcs none* flag prevents a cargo from initializing a Git repository automatically, as you'll manage the Git repository separately. 
 
-#### Step 3: Build the Project
+#### Step 3: Write a Basic Rust Program
 
 Navigate into your new project directory:
 
@@ -163,15 +168,25 @@ Navigate into your new project directory:
 cd rust-project
 ```
 
+Open the ```src/main.rs``` file and replace the contents with the following:
+
+```
+fn main(){
+    println!("Hello COMP423");
+}
+```
+
+#### Step 4: Build the Project
+
 Now, build the project with:
 
 ```
 cargo build
 ```
 
-This will compile the project, but won't run it yet. You'll find the compiled files in the target directory. This is like how in C, you might have to run a gcc [file_name] before running. 
+- This will compile the project, but won't run it yet. You'll find the compiled files in the target directory. This is like how in C, you might have to run a gcc [file_name] before running. 
 
-#### Step 4: Run the Project
+#### Step 5: Run the Project
 
 To run the project, use:
 
@@ -179,7 +194,15 @@ To run the project, use:
 cargo run
 ```
 
-This command compiles and runs the project in one step. It's equivalent to running *cargo build* followed by executing the built file. 
+- This command compiles and runs the project in one step. It's equivalent to running *cargo build* followed by executing the built file. 
+
+You should see the output:
+
+```
+Hello COMP423
+```
+
+
 
 **Differences Between cargo build and cargo run:**
 
